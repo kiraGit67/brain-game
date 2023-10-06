@@ -37,5 +37,8 @@ $(document).ready(function () {
     }
 
     $("body").css("backgroundColor", bodyColor);
+    $("#start-button").css("backgroundColor", bodyColor);
+    $("#start-button").css("borderColor", bodyColor);
+    $("#start-button").css("color", "white");
   });
 });
