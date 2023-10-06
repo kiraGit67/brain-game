@@ -10,7 +10,7 @@ $(document).ready(function () {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  let colorLeft, colorCenter, colorRight, randInt;
+  let colorLeft, colorCenter, colorRight, randInt, bodyColor;
 
   $(".square").click(function () {
     //alert("Viereck wurde geklickt.");
@@ -22,5 +22,20 @@ $(document).ready(function () {
     $("#left-square").css("backgroundColor", colorLeft);
     $("#center-square").css("backgroundColor", colorCenter);
     $("#right-square").css("backgroundColor", colorRight);
+
+    randInt = generateRandomInt(0, 2);
+
+    switch (randInt) {
+      case 0:
+        bodyColor = colorLeft;
+        break;
+      case 1:
+        bodyColor = colorCenter;
+        break;
+      default:
+        bodyColor = colorRight;
+    }
+
+    $("body").css("backgroundColor", bodyColor);
   });
 });
