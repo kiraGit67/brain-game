@@ -46,6 +46,12 @@ main {
   width: 100%;
 }
 
+.center-text > span,
+#start-button > span {
+  font-size: 110%;
+  font-weight: bold;
+}
+
 #left-time {
   padding: 0.35rem 0.5rem;
   background-color: lightblue;
