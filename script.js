@@ -8,10 +8,14 @@ $(document).ready(function () {
   let colorLeft, colorCenter, colorRight;
 
   $(".square").click(function () {
-    alert("Viereck wurde geklickt.");
+    //alert("Viereck wurde geklickt.");
 
     colorLeft = generateRandomColor();
     colorCenter = generateRandomColor();
     colorRight = generateRandomColor();
+
+    $("#left-square").css("backgroundColor", colorLeft);
+    $("#center-square").css("backgroundColor", colorCenter);
+    $("#right-square").css("backgroundColor", colorRight);
   });
 });
