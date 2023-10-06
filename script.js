@@ -5,7 +5,12 @@ $(document).ready(function () {
     return randomColor;
   }
 
-  let colorLeft, colorCenter, colorRight;
+  //Function to generate a random Int between 0 and 2
+  function generateRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  let colorLeft, colorCenter, colorRight, randInt;
 
   $(".square").click(function () {
     //alert("Viereck wurde geklickt.");
