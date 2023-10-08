@@ -12,9 +12,8 @@ $(document).ready(function () {
 
   let colorLeft, colorCenter, colorRight, randInt, bodyColor;
 
-  $(".square").click(function () {
-    //alert("Viereck wurde geklickt.");
-
+  //Put .square.click functionality into extern function
+  function setRandomButton() {
     colorLeft = generateRandomColor();
     colorCenter = generateRandomColor();
     colorRight = generateRandomColor();
@@ -40,5 +39,9 @@ $(document).ready(function () {
     $("#start-button").css("backgroundColor", bodyColor);
     $("#start-button").css("borderColor", bodyColor);
     $("#start-button").css("color", "white");
+  }
+
+  $(".square").click(function () {
+    setRandomButton();
   });
 });
