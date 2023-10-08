@@ -14,6 +14,13 @@ $(document).ready(function () {
   let gameStarted = true;
   let score = 0;
 
+  //function to set the background-color of body, main element and .square elements to black
+  function setAllBlack() {
+    $("body").css("background-color", "black");
+    $("main").css("background-color", "black");
+    $(".square").css("background-color", "black");
+  }
+
   //Game Over function
   function gameOver() {
     gameStarted = false;
@@ -25,6 +32,8 @@ $(document).ready(function () {
     $("#start-button").css("color", "black");
     $("#start-button").css("fontSize", "100%");
     score = 0;
+
+    setAllBlack();
   }
 
   //Put .square.click functionality into extern function
