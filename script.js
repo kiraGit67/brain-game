@@ -14,6 +14,19 @@ $(document).ready(function () {
   let gameStarted = true;
   let score = 0;
 
+  //Game Over function
+  function gameOver() {
+    gameStarted = false;
+    $("#start-button").text(
+      `Du hast ${score} Punkte erreicht. Klicke hier, um neu zu starten.`
+    );
+    $("#start-button").css("background-color", "red");
+    $("#start-button").css("border-color", "red");
+    $("#start-button").css("color", "black");
+    $("#start-button").css("fontSize", "100%");
+    score = 0;
+  }
+
   //Put .square.click functionality into extern function
   function setRandomButton() {
     colorLeft = generateRandomColor();
@@ -53,7 +66,7 @@ $(document).ready(function () {
           $("#start-button").text("Deine Punktzahl beträgt " + score);
           setRandomButton();
         } else {
-          alert("Game Over!");
+          gameOver();
         }
       } else if ($(this).attr("id") === "center-square") {
         if (randInt === 1) {
@@ -61,7 +74,7 @@ $(document).ready(function () {
           $("#start-button").text("Deine Punktzahl beträgt " + score);
           setRandomButton();
         } else {
-          alert("Game Over!");
+          gameOver();
         }
       } else if ($(this).attr("id") === "right-square") {
         if (randInt === 2) {
@@ -69,7 +82,7 @@ $(document).ready(function () {
           $("#start-button").text("Deine Punktzahl beträgt " + score);
           setRandomButton();
         } else {
-          alert("Game Over!");
+          gameOver();
         }
       }
     }
