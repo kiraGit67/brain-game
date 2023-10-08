@@ -24,16 +24,21 @@ $(document).ready(function () {
   //Game Over function
   function gameOver() {
     gameStarted = false;
-    $("#start-button").text(
-      `Du hast ${score} Punkte erreicht. Klicke hier, um neu zu starten.`
-    );
-    $("#start-button").css("background-color", "red");
-    $("#start-button").css("border-color", "red");
-    $("#start-button").css("color", "black");
-    $("#start-button").css("fontSize", "100%");
-    score = 0;
 
-    setAllBlack();
+    if (score > 0) {
+      $("#start-button").text(
+        `Du hast ${score} Punkte erreicht. Klicke hier, um neu zu starten.`
+      );
+      $("#start-button").css("background-color", "red");
+      $("#start-button").css("border-color", "red");
+      $("#start-button").css("color", "black");
+      $("#start-button").css("fontSize", "100%");
+      setAllBlack();
+    } else {
+      $("#start-button").text("Klicke hier, um das Spiel zu starten.");
+    }
+
+    score = 0;
   }
 
   //Put .square.click functionality into extern function
