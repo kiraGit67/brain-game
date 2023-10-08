@@ -1,8 +1,36 @@
 $(document).ready(function () {
   //Function to generate random colors
   function generateRandomColor() {
-    var randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
     return randomColor;
+  }
+
+  //Function to determine lightness of random color
+  function calculateLightness(hex) {
+    // Entfernen Sie das #-Zeichen, falls es vorhanden ist
+    hex = hex.replace(/^#/, "");
+
+    // Überprüfen Sie die Gültigkeit des HEX-Werts
+    if (hex.length !== 3 && hex.length !== 6) {
+      throw new Error("Ungültiger HEX-Wert");
+    }
+
+    // Wenn der HEX-Wert eine verkürzte Form (z.B. #123) ist, erweitern Sie ihn
+    if (hex.length === 3) {
+      hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+    }
+
+    // Parsen Sie die HEX-Werte in Dezimalzahlen
+    let r = parseInt(hex.slice(0, 2), 16);
+    let g = parseInt(hex.slice(2, 4), 16);
+    let b = parseInt(hex.slice(4, 6), 16);
+
+    // Berechnen Sie den Helligkeitswert (Lightness) nach der Formel:
+    // Lightness = (R + G + B) / 2
+    let lightness = (r + b + g) / 3;
+
+    // Geben Sie den Helligkeitswert zurück
+    return lightness;
   }
 
   //Function to generate a random Int between 0 and 2
@@ -65,9 +93,14 @@ $(document).ready(function () {
     }
 
     $("body").css("backgroundColor", bodyColor);
-    $("#start-button").css("backgroundColor", bodyColor);
     $("#start-button").css("borderColor", bodyColor);
-    $("#start-button").css("color", "white");
+    $("#start-button").css("backgroundColor", bodyColor);
+
+    if (calculateLightness(bodyColor) > 127) {
+      $("#start-button").css("color", "black");
+    } else {
+      $("#start-button").css("color", "white");
+    }
   }
 
   setRandomButton();
