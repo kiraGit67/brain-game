@@ -12,6 +12,7 @@ $(document).ready(function () {
 
   let colorLeft, colorCenter, colorRight, randInt, bodyColor;
   let gameStarted = true;
+  let score = 0;
 
   //Put .square.click functionality into extern function
   function setRandomButton() {
@@ -42,9 +43,35 @@ $(document).ready(function () {
     $("#start-button").css("color", "white");
   }
 
+  setRandomButton();
+
   $(".square").click(function () {
     if (gameStarted) {
-      setRandomButton();
+      if ($(this).attr("id") === "left-square") {
+        if (randInt === 0) {
+          score++;
+          $("#start-button").text("Deine Punktzahl beträgt " + score);
+          setRandomButton();
+        } else {
+          alert("Game Over!");
+        }
+      } else if ($(this).attr("id") === "center-square") {
+        if (randInt === 1) {
+          score++;
+          $("#start-button").text("Deine Punktzahl beträgt " + score);
+          setRandomButton();
+        } else {
+          alert("Game Over!");
+        }
+      } else if ($(this).attr("id") === "right-square") {
+        if (randInt === 2) {
+          score++;
+          $("#start-button").text("Deine Punktzahl beträgt " + score);
+          setRandomButton();
+        } else {
+          alert("Game Over!");
+        }
+      }
     }
   });
 });
