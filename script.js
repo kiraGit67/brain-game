@@ -32,7 +32,7 @@ $(document).ready(function () {
       $("#start-button").css("background-color", "red");
       $("#start-button").css("border-color", "red");
       $("#start-button").css("color", "black");
-      $("#start-button").css("fontSize", "100%");
+      $("#start-button").css("fontSize", "120%");
       setAllBlack();
     } else {
       $("#start-button").text("Klicke hier, um das Spiel zu starten.");
@@ -72,7 +72,28 @@ $(document).ready(function () {
 
   setRandomButton();
 
+  // function to start the game new
+  $("#start-button").click(function () {
+    if (gameStarted === false) {
+      //start game function
+      startGame();
+    }
+  });
+
+  function startGame() {
+    gameStarted = true;
+    score = 0;
+    setRandomButton();
+    $("#start-button").text(`Deine Punktzahl beträgt ${score}.`);
+    $("#start-button").css("background-color", "green");
+    $("#start-button").css("border-color", "green");
+    $("#start-button").css("color", "white");
+    $("#start-button").css("fontSize", "2rem");
+    $("main").css("backgroundColor", "white");
+  }
+
   $(".square").click(function () {
+    // function for clicking .square elements
     if (gameStarted) {
       if ($(this).attr("id") === "left-square") {
         if (randInt === 0) {
