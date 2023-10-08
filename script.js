@@ -11,6 +11,7 @@ $(document).ready(function () {
   }
 
   let colorLeft, colorCenter, colorRight, randInt, bodyColor;
+  let gameStarted = true;
 
   //Put .square.click functionality into extern function
   function setRandomButton() {
@@ -42,6 +43,8 @@ $(document).ready(function () {
   }
 
   $(".square").click(function () {
-    setRandomButton();
+    if (gameStarted) {
+      setRandomButton();
+    }
   });
 });
