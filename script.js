@@ -55,6 +55,7 @@ $(document).ready(function () {
     $("body").css("background-color", "black");
     $("main").css("background-color", "black");
     $(".square").css("background-color", "black");
+    $("#break-record").css("color", "red");
   }
 
   //Game Over function
@@ -69,6 +70,7 @@ $(document).ready(function () {
       $("#start-button").css("border-color", "red");
       $("#start-button").css("color", "black");
       $("#start-button").css("fontSize", "120%");
+
       setAllBlack();
     } else {
       $("#start-button").text("Klicke hier, um das Spiel zu starten.");
@@ -134,6 +136,7 @@ $(document).ready(function () {
     $("#start-button").css("color", "white");
     $("#start-button").css("fontSize", "2rem");
     $("main").css("backgroundColor", "white");
+    $("#break-record").css("color", "black");
 
     $("#time-left").html(timerDuration);
 
