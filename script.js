@@ -150,9 +150,14 @@ $(document).ready(function () {
   $(".square").click(function () {
     // function for clicking .square elements
     if (gameStarted) {
+      end = new Date().getTime();
+      let duration = end - start;
+
       if ($(this).attr("id") === "left-square") {
         if (randInt === 0) {
-          score++;
+          newScore = 100000 / duration;
+          score = Math.round(newScore + score);
+
           $("#start-button").text("Deine Punktzahl beträgt " + score);
           setRandomButton();
         } else {
@@ -160,7 +165,9 @@ $(document).ready(function () {
         }
       } else if ($(this).attr("id") === "center-square") {
         if (randInt === 1) {
-          score++;
+          newScore = 100000 / duration;
+          score = Math.round(newScore + score);
+
           $("#start-button").text("Deine Punktzahl beträgt " + score);
           setRandomButton();
         } else {
@@ -168,13 +175,17 @@ $(document).ready(function () {
         }
       } else if ($(this).attr("id") === "right-square") {
         if (randInt === 2) {
-          score++;
+          newScore = 100000 / duration;
+          score = Math.round(newScore + score);
+
           $("#start-button").text("Deine Punktzahl beträgt " + score);
           setRandomButton();
         } else {
           gameOver();
         }
       }
+
+      start = new Date().getTime();
     }
   });
 });
