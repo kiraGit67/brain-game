@@ -38,9 +38,15 @@ $(document).ready(function () {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
+  //Variables *********************************************************************************
   let colorLeft, colorCenter, colorRight, randInt, bodyColor;
   let gameStarted = true;
   let score = 0;
+  let timerDuration = 20; //Timer Duration
+  let record = 0; //Record of scores - updated if new score is higher than previous score
+  let newScore = 0; //Additional scores for every click on .square elements
+  let timer;
+  /****************************************************************************************** */
 
   //function to set the background-color of body, main element and .square elements to black
   function setAllBlack() {
