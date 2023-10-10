@@ -46,6 +46,10 @@ main {
   width: 100%;
 }
 
+.center-text#break-record {
+  color: black;
+}
+
 .center-text > span,
 #start-button > span {
   font-size: 110%;
