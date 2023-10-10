@@ -104,6 +104,7 @@ $(document).ready(function () {
   }
 
   setRandomButton();
+  gameOver();
 
   // function to start the game new
   $("#start-button").click(function () {
