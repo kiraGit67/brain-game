@@ -185,6 +185,11 @@ $(document).ready(function () {
         }
       }
 
+      if (score > record) {
+        record = score;
+        $("#record").text(record);
+      }
+
       start = new Date().getTime();
     }
   });
