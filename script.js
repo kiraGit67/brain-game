@@ -135,6 +135,8 @@ $(document).ready(function () {
     $("#start-button").css("fontSize", "2rem");
     $("main").css("backgroundColor", "white");
 
+    $("#time-left").html(timerDuration);
+
     timer = setInterval(function () {
       let timeCounter = $("#time-left").html();
       let updateTime = timeCounter - 1;
