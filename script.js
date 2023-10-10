@@ -46,6 +46,8 @@ $(document).ready(function () {
   let record = 0; //Record of scores - updated if new score is higher than previous score
   let newScore = 0; //Additional scores for every click on .square elements
   let timer;
+  let start;
+  let end;
   /****************************************************************************************** */
 
   //function to set the background-color of body, main element and .square elements to black
@@ -141,6 +143,8 @@ $(document).ready(function () {
         gameOver();
       }
     }, 1000);
+
+    start = new Date().getTime();
   }
 
   $(".square").click(function () {
