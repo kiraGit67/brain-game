@@ -112,7 +112,7 @@ $(document).ready(function () {
   setRandomButton();
   gameOver();
 
-  // function to start the game new
+  // function to start the game new via #start-button element
   $("#start-button").click(function () {
     if (gameStarted === false) {
       //start game function
@@ -120,6 +120,7 @@ $(document).ready(function () {
     }
   });
 
+  // function to start the game
   function startGame() {
     gameStarted = true;
     score = 0;
@@ -130,6 +131,16 @@ $(document).ready(function () {
     $("#start-button").css("color", "white");
     $("#start-button").css("fontSize", "2rem");
     $("main").css("backgroundColor", "white");
+
+    timer = setInterval(function () {
+      let timeCounter = $("#time-left").html();
+      let updateTime = timeCounter - 1;
+      $("#time-left").html(updateTime);
+
+      if (updateTime <= 0) {
+        gameOver();
+      }
+    }, 1000);
   }
 
   $(".square").click(function () {
