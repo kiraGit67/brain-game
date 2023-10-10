@@ -73,8 +73,9 @@ $(document).ready(function () {
     } else {
       $("#start-button").text("Klicke hier, um das Spiel zu starten.");
     }
-
     score = 0;
+
+    clearInterval(timer);
   }
 
   //Put .square.click functionality into extern function
